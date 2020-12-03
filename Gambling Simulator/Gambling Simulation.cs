@@ -10,6 +10,8 @@ namespace Gambling_Simulator
         public const int STAKE = 100;
         public const int BET= 1;
 
+        int noOfDays = 20;
+
         /// <summary>
         /// checking wether gambler win or loose
         /// </summary>
@@ -31,7 +33,7 @@ namespace Gambling_Simulator
         /// <summary>
         /// Play the Game uto 50percent of the money
         /// </summary>
-        public void GambleGame()
+        public int  GambleGame()
         {
             int tempMoney = STAKE;
             while(tempMoney>50 &&tempMoney<150)
@@ -48,12 +50,37 @@ namespace Gambling_Simulator
             int money = tempMoney - STAKE;
             if (money < 0)
             {
-                Console.WriteLine("Resigned for a day with loss of:" + money);
+                Console.WriteLine(" Resigned for a day with loss of:" + money);
             }
             else
             {
-                Console.WriteLine("Resigned for a day with gain of :" + money);
+                Console.WriteLine(" Resigned for a day with gain of :" + money);
             }
+            return money;
+        }
+
+        /// <summary>
+        /// Wins the or loose for20days.
+        /// </summary>
+        
+        public void WinOrLooseFor20days()
+        {
+            int totalAmount = 0;
+            for(int i = 0; i < 20; i++)
+            {
+                Console.Write("for a day " + (i + 1));
+                totalAmount+=GambleGame();
+            }
+            Console.WriteLine("TotalAmount is::" + totalAmount);
+            if (totalAmount < 0)
+            {
+                Console.WriteLine("Total loss::" + totalAmount);
+            }
+            else
+            {
+                Console.WriteLine("Total gain::" + totalAmount);
+            }
+            
         }
     }
 }

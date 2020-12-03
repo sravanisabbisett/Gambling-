@@ -8,7 +8,7 @@ namespace Gambling_Simulator
         {
             Console.WriteLine("Welcome to Gambling simulator");
             Gambling_Simulation gambling = new Gambling_Simulation();
-            gambling.GambleGame();
+            gambling.WinOrLooseFor20days();
             Console.ReadKey();
         }
     }
