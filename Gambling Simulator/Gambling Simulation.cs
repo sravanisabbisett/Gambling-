@@ -14,18 +14,45 @@ namespace Gambling_Simulator
         /// checking wether gambler win or loose
         /// </summary>
         /// <returns></returns>
-        public void WinLoose()
+        public bool WinLoose()
         {
             Random random = new Random();
             int checkWinOrLoose = random.Next(0, 2);
-            Console.WriteLine(checkWinOrLoose);
             if (checkWinOrLoose == 0)
             {
-                Console.WriteLine("Gambler win $1");
+                return true;
             }
             else
             {
-                Console.WriteLine("Gambler loose $1");
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Play the Game uto 50percent of the money
+        /// </summary>
+        public void GambleGame()
+        {
+            int tempMoney = STAKE;
+            while(tempMoney>50 &&tempMoney<150)
+            {
+                if (WinLoose())
+                {
+                    tempMoney = tempMoney + BET;
+                }
+                else
+                {
+                    tempMoney = tempMoney - BET;
+                }
+            }
+            int money = tempMoney - STAKE;
+            if (money < 0)
+            {
+                Console.WriteLine("Resigned for a day with loss of:" + money);
+            }
+            else
+            {
+                Console.WriteLine("Resigned for a day with gain of :" + money);
             }
         }
     }
