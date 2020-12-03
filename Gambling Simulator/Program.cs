@@ -6,7 +6,8 @@ namespace Gambling_Simulator
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Welcome to Gambling simulator");
+            Console.ReadKey();
         }
     }
 }
